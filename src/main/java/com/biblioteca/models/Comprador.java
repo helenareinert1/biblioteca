@@ -14,6 +14,9 @@ public class Comprador {
     private String email;
     private String data_nascimento;
 
+    public Comprador() {
+    }
+
     public Comprador(Long id, String nome, String endereco, String cpf, String email, String data_nascimento) {
         this.id = id;
         this.nome = nome;

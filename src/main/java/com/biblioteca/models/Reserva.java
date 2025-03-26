@@ -2,21 +2,30 @@ package com.biblioteca.models;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "reservas")
 public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String data;
+    private Date data;
     private String hora_inicio;
     private String hora_fim;
     private String descricao;
     private String categoria;
     private String codigo;
-    private String status;
+    private Boolean status;
+    @ManyToOne
+    @JoinColumn(name = "comprador_id")
+    private Comprador comprador;
 
-    public Reserva(Long id, String data, String hora_inicio, String hora_fim, String descricao, String categoria, String codigo, String status) {
+    public Reserva() {
+    }
+
+    public Reserva(Long id, Date data, String hora_inicio, String hora_fim, String descricao,
+                   String categoria, String codigo, Boolean status, Comprador comprador) {
         this.id = id;
         this.data = data;
         this.hora_inicio = hora_inicio;
@@ -25,6 +34,7 @@ public class Reserva {
         this.categoria = categoria;
         this.codigo = codigo;
         this.status = status;
+        this.comprador = comprador;
     }
 
     public Long getId() {
@@ -35,11 +45,11 @@ public class Reserva {
         this.id = id;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
@@ -83,12 +93,20 @@ public class Reserva {
         this.codigo = codigo;
     }
 
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
     }
 }
 

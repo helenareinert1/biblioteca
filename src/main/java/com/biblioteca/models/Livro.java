@@ -12,6 +12,9 @@ import jakarta.persistence.*;
         private String ano;
         private String editora;
 
+        public Livro() {
+        }
+
         public Livro(Long id, String nome, String ano, String editora) {
             this.id = id;
             this.nome = nome;
