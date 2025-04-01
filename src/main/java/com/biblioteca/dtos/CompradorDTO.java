@@ -1,20 +1,22 @@
 package com.biblioteca.dtos;
 
+import java.util.Date;
+
 public class CompradorDTO {
     private Long id;
     private String nome;
     private String endereco;
     private String cpf;
     private String email;
-    private String data_nascimento;
+    private Date dataNascimento;
 
-    public CompradorDTO(Long id, String nome, String endereco, String cpf, String email, String data_nascimento) {
+    public CompradorDTO(Long id, String nome, String endereco, String cpf, String email, Date dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
         this.cpf = cpf;
         this.email = email;
-        this.data_nascimento = data_nascimento;
+        this.dataNascimento = dataNascimento;
     }
 
     public CompradorDTO(){}
@@ -49,10 +51,12 @@ public class CompradorDTO {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getData_nascimento() {
-        return data_nascimento;
+
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 }

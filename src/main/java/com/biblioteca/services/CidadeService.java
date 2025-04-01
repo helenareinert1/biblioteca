@@ -22,19 +22,16 @@ public class CidadeService {
         Cidade nomeCidade = cidadeRepository.findByNome(cidadeDTO.getNome());
         cidadeSpec.verificarSeExisteCidadeComNomeDuplicado(nomeCidade);
 
-        Cidade estadoCidade = cidadeRepository.findByEstado(cidadeDTO.getEstado());
-        cidadeSpec.verificarSeExisteCidadeComEstadoDuplicado(estadoCidade);
 
         Cidade cidade = converterCidadeDTOParaCidade(cidadeDTO);
         cidade = cidadeRepository.save(cidade);
         return converterCidadeParaCidadeDTO(cidade);
     }
-
     public Cidade converterCidadeDTOParaCidade(CidadeDTO cidadeDTO) {
         Cidade cidade = new Cidade();
         cidade.setId(cidadeDTO.getId());
         cidade.setNome(cidadeDTO.getNome());
-        cidade.setEstado(cidadeDTO.getEstado());
+       cidade.setEstado(cidadeDTO.getEstado());
         return cidade;
     }
 

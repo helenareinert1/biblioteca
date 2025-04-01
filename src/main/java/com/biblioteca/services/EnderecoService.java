@@ -14,6 +14,8 @@ public class EnderecoService {
     private static final String MSG_ENDERECO = "Endereco não encontrado";
     @Autowired
     private EnderecoRepository enderecoRepository;
+    @Autowired
+    private CidadeService cidadeService;
 
     public EnderecoDTO buscarEnderecoPorId(Long id) {
         Endereco endereco = enderecoRepository.findById(id).orElseThrow(() ->
@@ -34,7 +36,7 @@ public class EnderecoService {
                endereco.getCep(),
                endereco.getRua(),
                endereco.getBairro(),
-               endereco.getCidade());
+              cidadeService.buscarCidadePorId(endereco.getCidade().getId()));
         return enderecoDTO;
     }
 
@@ -44,7 +46,7 @@ public class EnderecoService {
                 enderecoDTO.getCep(),
                 enderecoDTO.getRua(),
                 enderecoDTO.getBairro(),
-                enderecoDTO.getCidade());
+               cidadeService.converterCidadeDTOParaCidade(enderecoDTO.getCidade()));
         return endereco;
     }
 

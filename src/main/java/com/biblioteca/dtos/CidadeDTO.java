@@ -1,11 +1,21 @@
 package com.biblioteca.dtos;
 
+import com.biblioteca.enums.Estado;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
 public class CidadeDTO {
     private Long id;
     private String nome;
-    private String estado;
+   private Estado estado;
 
     public CidadeDTO(){}
+
+    public CidadeDTO(Long id, String nome, Estado estado) {
+        this.id = id;
+        this.nome = nome;
+        this.estado = estado;
+    }
 
         public Long getId () {
             return id;
@@ -22,11 +32,11 @@ public class CidadeDTO {
         public void setNome (String nome){
             this.nome = nome;
         }
-        public String getEstado () {
+        public Estado getEstado () {
             return estado;
         }
 
-        public void setEstado (String estado){
+        public void setEstado (Estado estado){
             this.estado = estado;
         }
     }

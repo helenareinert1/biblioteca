@@ -12,7 +12,6 @@ public class LivroDTO {
         this.ano = ano;
         this.editora = editora;
     }
-
     public LivroDTO(){}
 
     public Long getId() {

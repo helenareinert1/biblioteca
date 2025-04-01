@@ -27,7 +27,7 @@ public class CompradorService {
                 comprador.getEndereco(),
                 comprador.getCpf(),
                 comprador.getEmail(),
-                comprador.getData_nascimento());
+                comprador.getDataNascimento());
         return compradorDTO;
     }
 
@@ -37,7 +37,7 @@ public class CompradorService {
                 compradorDTO.getEndereco(),
                 compradorDTO.getCpf(),
                 compradorDTO.getEmail(),
-                compradorDTO.getData_nascimento());
+                compradorDTO.getDataNascimento());
         return comprador;
     }
 

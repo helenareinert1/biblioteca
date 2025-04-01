@@ -2,6 +2,9 @@ package com.biblioteca.models;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name = "comprador")
 public class Comprador {
@@ -12,18 +15,21 @@ public class Comprador {
     private String endereco;
     private String cpf;
     private String email;
-    private String data_nascimento;
+    @Column(name = "data_nascimento")
+    private Date dataNascimento;
+    @Enumerated(EnumType.STRING)
+    private List<com.biblioteca.enums.Perfis> perfis;
 
     public Comprador() {
     }
 
-    public Comprador(Long id, String nome, String endereco, String cpf, String email, String data_nascimento) {
+    public Comprador(Long id, String nome, String endereco, String cpf, String email, Date dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
         this.cpf = cpf;
         this.email = email;
-        this.data_nascimento = data_nascimento;
+        this.dataNascimento = dataNascimento;
     }
 
     public Long getId() {
@@ -66,11 +72,11 @@ public class Comprador {
         this.email = email;
     }
 
-    public String getData_nascimento() {
-        return data_nascimento;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 }
